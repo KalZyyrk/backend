@@ -5,14 +5,14 @@ const Thing = require("../models/Thing")
 
 const stuffCtrl = require('../controllers/stuff');
 
-router.post('/', stuffCtrl.createThing);
+router.post('/', auth, stuffCtrl.createThing);
 
-router.put('/:id', stuffCtrl.modifyThing);
+router.put('/:id', auth, stuffCtrl.modifyThing);
 
-router.delete('/:id', stuffCtrl.deleteThing)
+router.delete('/:id', auth, stuffCtrl.deleteThing)
 
-router.get('/:id', stuffCtrl.getOneThing);
+router.get('/:id', auth, stuffCtrl.getOneThing);
 
-router.get('/', stuffCtrl.getAllThing);
+router.get('/', auth, stuffCtrl.getAllThing);
 
 module.exports = router;
